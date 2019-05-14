@@ -51,22 +51,26 @@ def ft_preproc_dftfilter(data=None, Fs=None, Fl=None, dftreplace=None,
     for edge effects.
 
     Use as
-      filt = ft_preproc_dftfilter(data, Fsample, Fline, varargin)
+      filt = ft_preproc_dftfilter(data, Fsample, Fline, dftreplace,
+                         dftbandwidth, dftneighbourwidth)
     where
-      data             data matrix (Nchans X Ntime)
-      Fsample         sampling frequency in Hz
-      Fline           line noise frequency (and harmonics)
+      data             data matrix (Nchans X Ntime) (Required)
+      Fsample         sampling frequency in Hz (Required)
+      Fline           line noise frequency (and harmonics) default is 50 Hz
 
-    Additional input arguments come as key-value pairs:
+    Additional optional input arguments that can be defined:
 
-      Flreplace       'zero' or 'neighbour', method used to reduce line
-                      noise, 'zero' implies DFT filter, 'neighbour'
-                      implies spectrum interpolation
-      Flwidth         bandwidth of line noise frequencies, applies to
+    dftreplace        Can be 'zero' or 'neighbour' and selects the
+                      method used to reduce line noise.
+                      'zero' implies DFT filter, 'neighbour'
+                      implies spectrum interpolation.
+                      Default is 'zero', the DFT filter.
+    dftbandwidth      bandwidth of line noise frequencies, applies to
                       spectrum interpolation, in Hz
-      Neighwidth      width of frequencies neighbouring line noise
+                      Default is [1, 2, 3]
+    dftneighbourwidth Width of frequencies neighbouring line noise
                       frequencies, applies to spectrum interpolation
-                      (Flreplace = 'neighbour'), in Hz
+                      (dftneighbourwidth = 'neighbour'), in Hz
 
     The line frequency should be specified as a single number
     for the DFT filter. If omitted, a European default of
