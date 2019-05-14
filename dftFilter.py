@@ -213,7 +213,14 @@ def ft_preproc_dftfilter(data=None, Fs=None, Fl=None, dftreplace=None,
         # complex fourier coefficients are transformed back into time domin,
         # fourier coefficients are treated as conjugate 'symmetric'
         # to ensure a real valued signal after iFFT
-        idx = int(nsamples / 2 + 1)
-        filt = np.fft.irfft(data_fft[:, 0:idx], n=None, axis=1)
+
+        # Testing of both np.fft.ifft and np.fft.irfft showed that while
+        # both preformed well np.fft.ifft results were closer to matlab results
+        # Below, the two commented out lines are the code for irfft and are
+        # kept for posterity
+
+        # idx = int(nsamples / 2 + 1)
+        # filt = np.fft.irfft(data_fft[:, 0:idx], n=None, axis=1)
+        filt = np.real(np.fft.ifft(data_fft, n=None, axis=1))
 
     return filt
