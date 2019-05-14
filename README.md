@@ -8,3 +8,7 @@ Copyright (C) 2016, Sabine Leske
 
 Currently both the dft filter and the spectrum interpolation are working.
 The dft filter is quite slow and should be optimized.
+
+Plot showing the difference betweem outputs when using np.fft.irfft and np.fft.ifft when they are compared
+to the matlab output. 
+(https://github.com/Lubell/python_dftfilter/blob/master/comparisonofIFFT.png)
