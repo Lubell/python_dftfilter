@@ -14,4 +14,4 @@ to the matlab output.
 
 ![plot compare](https://github.com/Lubell/python_dftfilter/blob/master/comparisonofIFFT.png)
 
-The dft filter results are almost exactly the same as the matlab code's, the only difference precision, when rounded to 4 places (only precision I looked at) the results were identical.
+The dft filter results are almost exactly the same as the matlab code's, the only difference is precision, when rounded to 4 places (only precision I looked at) the results were identical.
