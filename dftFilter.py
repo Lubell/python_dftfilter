@@ -213,8 +213,6 @@ def ft_preproc_dftfilter(data=None, Fs=None, Fl=None, dftreplace=None,
         # complex fourier coefficients are transformed back into time domin,
         # fourier coefficients are treated as conjugate 'symmetric'
         # to ensure a real valued signal after iFFT
-        print(data_fft.shape)
-        # filt = np.real(np.fft.ifft(data_fft, n=None, axis=1))
         idx = int(nsamples / 2 + 1)
         filt = np.fft.irfft(data_fft[:, 0:idx], n=None, axis=1)
 
